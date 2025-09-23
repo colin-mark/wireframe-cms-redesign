@@ -94,6 +94,71 @@ The project uses a custom color palette defined in `tailwind.config.js`:
 - **Sidebar**: Click sidebar items to see expand/collapse behavior
 - **Product Dropdown**: Click the grid icon in the top bar to see the product grid
 
+## Netlify Deployment
+
+This project is configured for seamless deployment to Netlify with static site generation.
+
+### Deploy to Netlify
+
+#### Method 1: Drag & Drop (Quick Deploy)
+
+1. Run the build command:
+   ```bash
+   npm run generate
+   ```
+
+2. Drag and drop the `dist` folder to [Netlify Drop](https://app.netlify.com/drop)
+
+#### Method 2: Git Integration (Recommended)
+
+1. Push your code to a GitHub repository
+2. Connect the repository to Netlify:
+   - Go to [Netlify](https://app.netlify.com)
+   - Click "New site from Git"
+   - Choose GitHub and select your repository
+   - Netlify will automatically detect the configuration from `netlify.toml`
+
+#### Method 3: Netlify CLI
+
+1. Install Netlify CLI:
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. Login to Netlify:
+   ```bash
+   netlify login
+   ```
+
+3. Deploy:
+   ```bash
+   netlify deploy --prod --dir=dist
+   ```
+
+### Configuration Files
+
+The project includes these Netlify configuration files:
+
+- **`netlify.toml`**: Main configuration with build settings, redirects, and headers
+- **`public/_redirects`**: Backup redirect rules for SPA routing
+- **`nuxt.config.ts`**: Configured for static generation with Netlify preset
+
+### Build Settings
+
+If manually configuring in Netlify dashboard:
+- **Build command**: `npm run generate`
+- **Publish directory**: `dist`
+- **Node version**: `18`
+
+### Features Included
+
+- ✅ Static Site Generation (SSG)
+- ✅ SPA routing with fallback support
+- ✅ Optimized caching headers
+- ✅ Security headers
+- ✅ 404 error handling
+- ✅ Automatic route discovery and prerendering
+
 ## Next Steps
 
 This wireframe provides the foundation for:
@@ -101,7 +166,7 @@ This wireframe provides the foundation for:
 - Implementing backend integrations
 - Adding authentication
 - Making it responsive for mobile devices
-- Deploying to production
+- **✅ Deploying to Netlify (Ready!)**
 
 ## GitHub Repository
 

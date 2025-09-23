@@ -13,8 +13,14 @@ export default defineNuxtConfig({
   ssr: true,
   loading: false, // Disable the default loading indicator
   nitro: {
+    preset: 'netlify',
+    prerender: {
+      // Ignore 404 errors during prerendering
+      failOnError: false,
+      crawlLinks: true
+    },
     routeRules: {
-      '/**': { prerender: false, ssr: true }
+      '/**': { prerender: true }
     }
   }
 })
