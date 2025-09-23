@@ -1,0 +1,30 @@
+<template>
+  <div class="p-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="border-2 border-dashed border-astra-gray-400 rounded-lg p-12 text-center bg-astra-gray-25">
+        <div class="space-y-4">
+          <div class="w-16 h-16 bg-astra-blue rounded-lg flex items-center justify-center mx-auto">
+            <SpeakerWaveIcon class="w-8 h-8 text-astra-white" />
+          </div>
+          <h2 class="text-xl font-medium text-astra-gray-700">Messaging</h2>
+          <p class="text-astra-gray-600 max-w-md mx-auto">
+            Manage push notifications, manual topics, and messaging features for your application.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { SpeakerWaveIcon } from '@heroicons/vue/24/outline'
+
+// Only redirect on client-side to avoid SSR issues
+if (process.client) {
+  await navigateTo('/messaging/push-notifications')
+}
+
+definePageMeta({
+  layout: 'default'
+})
+</script>
