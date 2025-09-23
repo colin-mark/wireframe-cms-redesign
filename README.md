@@ -2,6 +2,8 @@
 
 A modern wireframe implementation of the AstraOne UI built with Nuxt 3, Vue 3, Pinia, and Tailwind CSS.
 
+🚀 **Live Demo**: https://statuesque-tanuki-8b8d8b.netlify.app
+
 ## Overview
 
 This project is a frontend wireframe scaffolding that matches the provided design screenshots. It includes:
