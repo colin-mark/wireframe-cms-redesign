@@ -3,10 +3,10 @@
   command = "npm run generate"
   
   # Directory to publish (contains the generated static files)
-  publish = ".output/public"
+  publish = "dist"
   
   # Node.js version
-  environment = { NODE_VERSION = "18" }
+  environment = { NODE_VERSION = "20" }
 
 # SPA routing support - redirect all routes to index.html for client-side routing
 [[redirects]]
