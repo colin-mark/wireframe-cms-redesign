@@ -183,6 +183,13 @@ const filterFeatureItems = (items) => {
 const sidebarItemsMap = {
   '/': [ // Home page
     {
+      name: 'Dashboard',
+      icon: HomeIcon,
+      route: '/home/dashboard',
+      isActive: false,
+      isExpanded: false
+    },
+    {
       name: 'Site Analytics',
       icon: ChartBarIcon,
       route: '/home/site-analytics',
@@ -204,7 +211,44 @@ const sidebarItemsMap = {
       isExpanded: false
     }
   ],
+  '/home/dashboard': [
+    {
+      name: 'Dashboard',
+      icon: HomeIcon,
+      route: '/home/dashboard',
+      isActive: true,
+      isExpanded: false
+    },
+    {
+      name: 'Site Analytics',
+      icon: ChartBarIcon,
+      route: '/home/site-analytics',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Quick Links',
+      icon: RectangleStackIcon,
+      route: '/home/quick-links',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Recently Updated',
+      icon: DocumentArrowDownIcon,
+      route: '/home/recently-updated',
+      isActive: false,
+      isExpanded: false
+    }
+  ],
   '/home/site-analytics': [
+    {
+      name: 'Dashboard',
+      icon: HomeIcon,
+      route: '/home/dashboard',
+      isActive: false,
+      isExpanded: false
+    },
     {
       name: 'Site Analytics',
       icon: ChartBarIcon,
@@ -229,6 +273,13 @@ const sidebarItemsMap = {
   ],
   '/home/quick-links': [
     {
+      name: 'Dashboard',
+      icon: HomeIcon,
+      route: '/home/dashboard',
+      isActive: false,
+      isExpanded: false
+    },
+    {
       name: 'Site Analytics',
       icon: ChartBarIcon,
       route: '/home/site-analytics',
@@ -251,6 +302,13 @@ const sidebarItemsMap = {
     }
   ],
   '/home/recently-updated': [
+    {
+      name: 'Dashboard',
+      icon: HomeIcon,
+      route: '/home/dashboard',
+      isActive: false,
+      isExpanded: false
+    },
     {
       name: 'Site Analytics',
       icon: ChartBarIcon,
