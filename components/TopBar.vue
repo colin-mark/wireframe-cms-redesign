@@ -58,10 +58,32 @@
         <div class="relative">
           <MagnifyingGlassIcon class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-astra-gray-600" />
           <input
+            v-model="searchQuery"
             type="text"
             placeholder="Search..."
             class="pl-10 pr-4 py-2 w-64 text-sm border border-astra-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-astra-blue focus:border-transparent"
+            @focus="handleSearchFocus"
+            @blur="handleSearchBlur"
+            @keydown.enter.prevent="handleSearchEnter"
+            @keydown.esc.prevent="handleSearchEscape"
           />
+
+          <div
+            v-if="showSearchResults"
+            class="absolute left-0 right-0 mt-2 bg-astra-white border border-astra-slate-300 rounded-lg shadow-lg z-50"
+          >
+            <ul class="max-h-64 overflow-y-auto py-2">
+              <li v-for="link in filteredSidebarLinks" :key="link.route">
+                <button
+                  type="button"
+                  class="w-full text-left px-4 py-2 text-sm text-astra-gray-800 hover:bg-astra-gray-50"
+                  @mousedown.prevent="selectSearchResult(link)"
+                >
+                  {{ link.name }}
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- Avatar Dropdown -->
@@ -103,11 +125,13 @@ import {
   ChevronDownIcon, 
   MagnifyingGlassIcon 
 } from '@heroicons/vue/24/outline'
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { computed, ref, watch } from 'vue'
 import { useFeaturesStore } from '~/stores/features'
+import { getAllSidebarLinks } from '~/utils/sidebar-items'
 
 const route = useRoute()
+const router = useRouter()
 const featuresStore = useFeaturesStore()
 
 // Load features from localStorage on component mount
@@ -123,6 +147,63 @@ const tabs = [
   { name: 'Messaging', path: '/messaging', requiresMobileApp: true },
   { name: 'Settings', path: '/settings' }
 ]
+
+const searchQuery = ref('')
+const isSearchFocused = ref(false)
+
+const allSidebarLinks = computed(() => getAllSidebarLinks(featuresStore))
+
+const filteredSidebarLinks = computed(() => {
+  const query = searchQuery.value.trim().toLowerCase()
+  const links = allSidebarLinks.value
+
+  if (!query) {
+    return links
+  }
+
+  return links.filter(link => link.name.toLowerCase().includes(query))
+})
+
+const showSearchResults = computed(() => {
+  return isSearchFocused.value && filteredSidebarLinks.value.length > 0
+})
+
+const selectSearchResult = (link) => {
+  if (!link || !link.route) {
+    return
+  }
+
+  searchQuery.value = ''
+  isSearchFocused.value = false
+  router.push(link.route)
+}
+
+const handleSearchFocus = () => {
+  isSearchFocused.value = true
+}
+
+const handleSearchBlur = () => {
+  setTimeout(() => {
+    isSearchFocused.value = false
+  }, 100)
+}
+
+const handleSearchEnter = () => {
+  const [firstResult] = filteredSidebarLinks.value
+  if (firstResult) {
+    selectSearchResult(firstResult)
+  }
+}
+
+const handleSearchEscape = () => {
+  searchQuery.value = ''
+  isSearchFocused.value = false
+}
+
+watch(() => route.path, () => {
+  searchQuery.value = ''
+  isSearchFocused.value = false
+})
 
 // Product dropdown data
 const products = [
