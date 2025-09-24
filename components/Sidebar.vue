@@ -186,14 +186,14 @@ const sidebarItemsMap = {
       name: 'Dashboard',
       icon: HomeIcon,
       route: '/home/dashboard',
-      isActive: false,
+      isActive: true,
       isExpanded: false
     },
     {
       name: 'Site Analytics',
       icon: ChartBarIcon,
       route: '/home/site-analytics',
-      isActive: true,
+      isActive: false,
       isExpanded: false
     },
     {

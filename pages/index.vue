@@ -39,7 +39,7 @@ import { Squares2X2Icon } from '@heroicons/vue/24/outline'
 
 // Only redirect on client-side to avoid SSR issues
 if (process.client) {
-  await navigateTo('/home/site-analytics')
+  await navigateTo('/home/dashboard')
 }
 
 // Set page meta
