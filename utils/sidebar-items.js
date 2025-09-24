@@ -81,27 +81,6 @@ export const sidebarItemsMap = {
       isActive: true,
       isExpanded: false
     },
-    {
-      name: 'Site Analytics',
-      icon: ChartBarIcon,
-      route: '/home/site-analytics',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Quick Links',
-      icon: RectangleStackIcon,
-      route: '/home/quick-links',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Recently Updated',
-      icon: DocumentArrowDownIcon,
-      route: '/home/recently-updated',
-      isActive: false,
-      isExpanded: false
-    }
   ],
   '/home/dashboard': [
     {
@@ -111,117 +90,6 @@ export const sidebarItemsMap = {
       isActive: true,
       isExpanded: false
     },
-    {
-      name: 'Site Analytics',
-      icon: ChartBarIcon,
-      route: '/home/site-analytics',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Quick Links',
-      icon: RectangleStackIcon,
-      route: '/home/quick-links',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Recently Updated',
-      icon: DocumentArrowDownIcon,
-      route: '/home/recently-updated',
-      isActive: false,
-      isExpanded: false
-    }
-  ],
-  '/home/site-analytics': [
-    {
-      name: 'Dashboard',
-      icon: HomeIcon,
-      route: '/home/dashboard',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Site Analytics',
-      icon: ChartBarIcon,
-      route: '/home/site-analytics',
-      isActive: true,
-      isExpanded: false
-    },
-    {
-      name: 'Quick Links',
-      icon: RectangleStackIcon,
-      route: '/home/quick-links',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Recently Updated',
-      icon: DocumentArrowDownIcon,
-      route: '/home/recently-updated',
-      isActive: false,
-      isExpanded: false
-    }
-  ],
-  '/home/quick-links': [
-    {
-      name: 'Dashboard',
-      icon: HomeIcon,
-      route: '/home/dashboard',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Site Analytics',
-      icon: ChartBarIcon,
-      route: '/home/site-analytics',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Quick Links',
-      icon: RectangleStackIcon,
-      route: '/home/quick-links',
-      isActive: true,
-      isExpanded: false
-    },
-    {
-      name: 'Recently Updated',
-      icon: DocumentArrowDownIcon,
-      route: '/home/recently-updated',
-      isActive: false,
-      isExpanded: false
-    }
-  ],
-  '/home/recently-updated': [
-    {
-      name: 'Dashboard',
-      icon: HomeIcon,
-      route: '/home/dashboard',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Site Analytics',
-      icon: ChartBarIcon,
-      route: '/home/site-analytics',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Quick Links',
-      icon: RectangleStackIcon,
-      route: '/home/quick-links',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Recently Updated',
-      icon: DocumentArrowDownIcon,
-      route: '/home/recently-updated',
-      isActive: true,
-      isExpanded: false
-    }
   ],
           '/website-layout': [
             {
@@ -1542,6 +1410,13 @@ export const sidebarItemsMap = {
       isExpanded: false
     },
     {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
+      isActive: false,
+      isExpanded: false
+    },
+    {
       name: 'Website Settings',
       isSection: true
     },
@@ -1653,6 +1528,13 @@ export const sidebarItemsMap = {
       name: 'Features',
       icon: Squares2X2Icon,
       route: '/settings/features',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
       isActive: false,
       isExpanded: false
     },
@@ -1772,6 +1654,13 @@ export const sidebarItemsMap = {
       isExpanded: false
     },
     {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
+      isActive: false,
+      isExpanded: false
+    },
+    {
       name: 'Website Settings',
       isSection: true
     },
@@ -1887,6 +1776,135 @@ export const sidebarItemsMap = {
       isExpanded: false
     },
     {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Website Settings',
+      isSection: true
+    },
+    {
+      name: 'General',
+      icon: CogIcon,
+      route: '/settings/general',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Header',
+      icon: RectangleStackIcon,
+      route: '/settings/header',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Schedule Ticket',
+      icon: DocumentArrowDownIcon,
+      route: '/settings/schedule-ticket',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Writing',
+      icon: DocumentTextIcon,
+      route: '/settings/writing',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Advertising',
+      icon: SpeakerWaveIcon,
+      route: '/settings/advertising',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Roster',
+      icon: UserIcon,
+      route: '/settings/roster',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Schedule',
+      icon: DocumentArrowDownIcon,
+      route: '/settings/schedule',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'SEO',
+      icon: GlobeAltIcon,
+      route: '/settings/seo',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Fonts',
+      icon: PaintBrushIcon,
+      route: '/settings/fonts',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Mobile App Settings',
+      isSection: true
+    },
+    {
+      name: 'General Settings',
+      icon: CogIcon,
+      route: '/settings/mobile-general',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Sports Settings',
+      icon: BuildingOfficeIcon,
+      route: '/settings/sports-settings',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'Devices',
+      icon: ComputerDesktopIcon,
+      route: '/settings/devices',
+      isActive: false,
+      isExpanded: false
+    }
+  ],
+  '/settings/features/general': [
+    {
+      name: 'CMS Settings',
+      isSection: true
+    },
+    {
+      name: 'User Management',
+      icon: UserGroupIcon,
+      route: '/settings/user-management',
+      isActive: false,
+      isExpanded: false,
+      children: [
+        { name: 'Add User', route: '/settings/user-management/add-user', isActive: false }
+      ]
+    },
+    {
+      name: 'Features',
+      icon: Squares2X2Icon,
+      route: '/settings/features',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
+      isActive: true,
+      isExpanded: false
+    },
+    {
       name: 'Website Settings',
       isSection: true
     },
@@ -1998,6 +2016,13 @@ export const sidebarItemsMap = {
       name: 'Features',
       icon: Squares2X2Icon,
       route: '/settings/features',
+      isActive: false,
+      isExpanded: false
+    },
+    {
+      name: 'General CMS Settings',
+      icon: CogIcon,
+      route: '/settings/features/general',
       isActive: false,
       isExpanded: false
     },
@@ -2653,4 +2678,3 @@ export const getAllSidebarLinks = (featuresStore) => {
 
   return Array.from(deduped.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
-
