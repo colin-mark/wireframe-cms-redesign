@@ -1,23 +1,17 @@
-<template>
-  <div class="p-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="border-2 border-dashed border-astra-gray-400 rounded-lg p-12 text-center bg-astra-gray-25">
-        <div class="space-y-4">
-          <div class="w-16 h-16 bg-astra-blue rounded-lg flex items-center justify-center mx-auto">
-            <Squares2X2Icon class="w-8 h-8 text-astra-white" />
-          </div>
-          <h2 class="text-xl font-medium text-astra-gray-700">Features — General CMS Settings</h2>
-          <p class="text-astra-gray-600 max-w-md mx-auto">
-            Configure global CMS feature defaults and toggles that apply across your entire workspace.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { Squares2X2Icon } from '@heroicons/vue/24/outline'
+import { navigateTo, useRequestEvent } from '#app'
+
+// Redirect legacy Features → General route to the new General CMS Settings screen.
+if (import.meta.server) {
+  const event = useRequestEvent()
+  if (event) {
+    event.node.res.statusCode = 301
+    event.node.res.setHeader('Location', '/settings/general')
+    event.node.res.end()
+  }
+} else {
+  await navigateTo('/settings/general', { redirectCode: 301, replace: true })
+}
 
 definePageMeta({
   layout: 'default'

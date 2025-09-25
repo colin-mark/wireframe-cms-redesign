@@ -78,7 +78,7 @@ export const sidebarItemsMap = {
       name: 'Dashboard',
       icon: HomeIcon,
       route: '/home/dashboard',
-      isActive: true,
+      isActive: false,
       isExpanded: false
     },
   ],
@@ -1412,7 +1412,7 @@ export const sidebarItemsMap = {
     {
       name: 'General CMS Settings',
       icon: CogIcon,
-      route: '/settings/features/general',
+      route: '/settings/general',
       isActive: false,
       isExpanded: false
     },
@@ -1534,7 +1534,7 @@ export const sidebarItemsMap = {
     {
       name: 'General CMS Settings',
       icon: CogIcon,
-      route: '/settings/features/general',
+      route: '/settings/general',
       isActive: false,
       isExpanded: false
     },
@@ -1656,7 +1656,7 @@ export const sidebarItemsMap = {
     {
       name: 'General CMS Settings',
       icon: CogIcon,
-      route: '/settings/features/general',
+      route: '/settings/general',
       isActive: false,
       isExpanded: false
     },
@@ -1778,130 +1778,8 @@ export const sidebarItemsMap = {
     {
       name: 'General CMS Settings',
       icon: CogIcon,
-      route: '/settings/features/general',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Website Settings',
-      isSection: true
-    },
-    {
-      name: 'General',
-      icon: CogIcon,
       route: '/settings/general',
       isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Header',
-      icon: RectangleStackIcon,
-      route: '/settings/header',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Schedule Ticket',
-      icon: DocumentArrowDownIcon,
-      route: '/settings/schedule-ticket',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Writing',
-      icon: DocumentTextIcon,
-      route: '/settings/writing',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Advertising',
-      icon: SpeakerWaveIcon,
-      route: '/settings/advertising',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Roster',
-      icon: UserIcon,
-      route: '/settings/roster',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Schedule',
-      icon: DocumentArrowDownIcon,
-      route: '/settings/schedule',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'SEO',
-      icon: GlobeAltIcon,
-      route: '/settings/seo',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Fonts',
-      icon: PaintBrushIcon,
-      route: '/settings/fonts',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Mobile App Settings',
-      isSection: true
-    },
-    {
-      name: 'General Settings',
-      icon: CogIcon,
-      route: '/settings/mobile-general',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Sports Settings',
-      icon: BuildingOfficeIcon,
-      route: '/settings/sports-settings',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'Devices',
-      icon: ComputerDesktopIcon,
-      route: '/settings/devices',
-      isActive: false,
-      isExpanded: false
-    }
-  ],
-  '/settings/features/general': [
-    {
-      name: 'CMS Settings',
-      isSection: true
-    },
-    {
-      name: 'User Management',
-      icon: UserGroupIcon,
-      route: '/settings/user-management',
-      isActive: false,
-      isExpanded: false,
-      children: [
-        { name: 'Add User', route: '/settings/user-management/add-user', isActive: false }
-      ]
-    },
-    {
-      name: 'Features',
-      icon: Squares2X2Icon,
-      route: '/settings/features',
-      isActive: false,
-      isExpanded: false
-    },
-    {
-      name: 'General CMS Settings',
-      icon: CogIcon,
-      route: '/settings/features/general',
-      isActive: true,
       isExpanded: false
     },
     {
@@ -2022,8 +1900,8 @@ export const sidebarItemsMap = {
     {
       name: 'General CMS Settings',
       icon: CogIcon,
-      route: '/settings/features/general',
-      isActive: false,
+      route: '/settings/general',
+      isActive: true,
       isExpanded: false
     },
     {
@@ -2034,7 +1912,7 @@ export const sidebarItemsMap = {
       name: 'General',
       icon: CogIcon,
       route: '/settings/general',
-      isActive: true,
+      isActive: false,
       isExpanded: false
     },
     {
