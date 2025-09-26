@@ -8,7 +8,7 @@
     ]"
   >
     <div class="flex items-center justify-between w-full">
-      <!-- Left Side: Brand + Dropdown + Tabs -->
+      <!-- Left Side: Brand + Site Title + Tabs -->
       <div class="flex items-center gap-10">
         <div class="flex items-center gap-6">
           <!-- Brand -->
@@ -33,63 +33,20 @@
             </span>
           </div>
 
-          <!-- Site Switcher -->
-          <Menu as="div" class="relative">
-            <MenuButton
-            :class="[
-              'flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors duration-200 focus:outline-none',
-              isNewDesignEnabled
-                ? 'text-astra-gray-800 hover:bg-astra-gray-50'
-                : 'bg-white text-[#1E6AE1] shadow-[0_3px_10px_rgba(30,106,225,0.15)] hover:bg-[#DDEBFF]'
-            ]"
-          >
-            <img :src="selectedSite.logo" alt="Selected site" class="h-6 w-6 rounded" />
-            <span class="text-sm font-medium truncate max-w-[220px]">
-              {{ selectedSite.name }}
-            </span>
-            <ChevronDownIcon :class="['w-4 h-4 flex-shrink-0', isNewDesignEnabled ? 'text-astra-gray-600' : 'text-[#0F4CAD]']" />
-          </MenuButton>
-
-            <MenuItems
-            :class="[
-              'absolute left-0 top-full mt-2 w-80 rounded-lg border bg-white shadow-lg z-50 max-h-96 overflow-auto transition-colors duration-300',
-              isNewDesignEnabled ? 'border-astra-slate-300' : 'border-[#D9E7FB] shadow-[0_18px_40px_rgba(30,106,225,0.18)]'
-            ]"
-          >
-            <div class="p-3">
-              <input
-                v-model="siteSearch"
-                type="text"
-                placeholder="Search sites..."
-                class="w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2"
-                :class="isNewDesignEnabled
-                  ? 'border-astra-slate-300 focus:ring-astra-blue'
-                  : 'border-[#D9E7FB] focus:ring-[#1E6AE1]'"
-              />
-            </div>
-            <div class="py-2">
-              <MenuItem
-                v-for="site in filteredSites"
-                :key="site.name"
-                v-slot="{ active }"
-              >
-                <button
-                  type="button"
-                  class="flex w-full items-center space-x-3 px-4 py-2 text-left text-sm transition-colors"
-                  :class="[
-                    active
-                      ? (isNewDesignEnabled ? 'bg-astra-gray-50' : 'bg-[#ECF4FF]')
-                      : ''
-                  ]"
-                  @click="selectSite(site)"
-                >
-                  <img :src="site.logo" alt="Site logo" class="h-6 w-6 rounded" />
-                  <span class="font-medium text-astra-gray-800">{{ site.name }}</span>
-                </button>
-              </MenuItem>
-            </div>
-            </MenuItems>
-          </Menu>
+        <!-- Site Branding -->
+        <div
+          :class="[
+            'flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors duration-200',
+            isNewDesignEnabled
+              ? 'text-astra-gray-800 bg-transparent'
+              : 'bg-white text-[#1E6AE1] shadow-[0_3px_10px_rgba(30,106,225,0.15)]'
+          ]"
+        >
+          <img :src="auburnLogo" alt="Auburn Tigers logo" class="h-6 w-6 rounded" />
+          <span class="text-sm font-medium whitespace-nowrap">
+            Auburn Tigers - Official Athletics Website
+          </span>
+        </div>
         </div>
 
         <!-- Tab Navigation -->
@@ -277,15 +234,6 @@ const tabs = [
 
 const searchQuery = ref('')
 const isSearchFocused = ref(false)
-const siteSearch = ref('')
-const sites = [
-  { name: 'Auburn Tigers - Official Athletics Website', logo: auburnLogo },
-  { name: 'Iowa State Cyclones Official Website', logo: auburnLogo },
-  { name: 'Texas Longhorns Official Website', logo: auburnLogo },
-  { name: 'Georgia Bulldogs Official Website', logo: auburnLogo }
-]
-const selectedSite = ref(sites[0])
-
 const allSidebarLinks = computed(() => getAllSidebarLinks(featuresStore))
 
 const filteredSidebarLinks = computed(() => {
@@ -297,14 +245,6 @@ const filteredSidebarLinks = computed(() => {
   }
 
   return links.filter(link => link.name.toLowerCase().includes(query))
-})
-
-const filteredSites = computed(() => {
-  const query = siteSearch.value.trim().toLowerCase()
-  if (!query) {
-    return sites
-  }
-  return sites.filter(site => site.name.toLowerCase().includes(query))
 })
 
 const showSearchResults = computed(() => {
@@ -341,11 +281,6 @@ const handleSearchEnter = () => {
 const handleSearchEscape = () => {
   searchQuery.value = ''
   isSearchFocused.value = false
-}
-
-const selectSite = (site) => {
-  selectedSite.value = site
-  siteSearch.value = ''
 }
 
 watch(() => route.path, () => {
