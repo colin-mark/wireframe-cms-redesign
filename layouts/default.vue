@@ -70,10 +70,6 @@ const isMobileNavOpen = ref(false)
 const isMobileViewport = ref(false)
 const mobileBreakpoint = 1024
 
-if (process.client) {
-  isMobileViewport.value = window.innerWidth < mobileBreakpoint
-}
-
 const updateViewport = () => {
   if (!process.client) {
     return
