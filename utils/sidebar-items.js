@@ -2556,3 +2556,70 @@ export const getAllSidebarLinks = (featuresStore) => {
 
   return Array.from(deduped.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
+
+const cloneSidebarItemsForMobile = (items = []) => {
+  return items.map(item => ({
+    ...item,
+    icon: item.icon,
+    children: item.children ? cloneSidebarItemsForMobile(item.children) : undefined
+  }))
+}
+
+const transformItemForMobileNavigation = (item) => {
+  if (item.isSection) {
+    return {
+      type: 'section',
+      name: item.name
+    }
+  }
+
+  const entry = {
+    type: 'link',
+    name: item.name,
+    route: item.route || null,
+    id: item.route || item.name,
+    defaultExpanded: !!item.isExpanded
+  }
+
+  if (item.children && item.children.length > 0) {
+    entry.children = item.children
+      .map(transformItemForMobileNavigation)
+      .filter(Boolean)
+  }
+
+  return entry
+}
+
+const mobileNavigationConfig = [
+  { name: 'Home', path: '/', keys: ['/home/dashboard', '/'], defaultExpanded: true },
+  { name: 'Layout', path: '/website-layout', keys: ['/website-layout'] },
+  { name: 'Content', path: '/content', keys: ['/content'] },
+  { name: 'Messaging', path: '/messaging', keys: ['/messaging'], requiresMobileApp: true },
+  { name: 'Settings', path: '/settings', keys: ['/settings'] }
+]
+
+const getSidebarItemsForKeys = (keys = [], featuresStore) => {
+  for (const key of keys) {
+    if (!sidebarItemsMap[key]) {
+      continue
+    }
+
+    const cloned = cloneSidebarItemsForMobile(sidebarItemsMap[key])
+    const filtered = filterSidebarItems(cloned, featuresStore)
+    return filtered.map(transformItemForMobileNavigation)
+  }
+
+  return []
+}
+
+export const getMobileNavigationSections = (featuresStore) => {
+  return mobileNavigationConfig
+    .filter(config => !config.requiresMobileApp || featuresStore.isMobileAppEnabled)
+    .map(config => ({
+      name: config.name,
+      route: config.path,
+      id: config.path || config.name,
+      defaultExpanded: !!config.defaultExpanded,
+      items: getSidebarItemsForKeys(config.keys, featuresStore)
+    }))
+}
