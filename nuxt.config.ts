@@ -17,10 +17,8 @@ export default defineNuxtConfig({
     prerender: {
       // Ignore 404 errors during prerendering
       failOnError: false,
-      crawlLinks: true
-    },
-    routeRules: {
-      '/**': { prerender: true }
+      crawlLinks: false,
+      routes: ['/password']
     }
   }
 })
