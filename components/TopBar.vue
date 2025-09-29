@@ -383,14 +383,9 @@ const clientName = 'Auburn Tigers - Official Athletics Website'
 const isMobileView = ref(false)
 const mobileBreakpoint = 1024
 
-// Load features from localStorage on component mount
-if (process.client) {
-  featuresStore.loadFromLocalStorage()
-  generalSettingsStore.ensureLoaded()
-}
-
 onMounted(() => {
   generalSettingsStore.ensureLoaded()
+  featuresStore.loadFromLocalStorage()
   updateIsMobileView()
   if (process.client) {
     window.addEventListener('resize', updateIsMobileView)

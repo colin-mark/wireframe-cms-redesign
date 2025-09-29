@@ -41,12 +41,6 @@ import MobileNavigation from '~/components/MobileNavigation.vue'
 const generalSettingsStore = useGeneralSettingsStore()
 const featuresStore = useFeaturesStore()
 
-generalSettingsStore.ensureLoaded()
-
-if (process.client) {
-  featuresStore.loadFromLocalStorage()
-}
-
 onMounted(() => {
   generalSettingsStore.ensureLoaded()
   featuresStore.loadFromLocalStorage()
