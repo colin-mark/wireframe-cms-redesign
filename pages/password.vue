@@ -32,6 +32,7 @@
 
 <script setup>
 import { useRoute, useRouter } from '#imports'
+import { recordAuthSession } from '~/utils/auth-session'
 
 const route = useRoute()
 const router = useRouter()
@@ -40,7 +41,7 @@ const error = ref('')
 
 const handleSubmit = () => {
   if (password.value === 'astronemockup') {
-    document.cookie = 'astrone_auth=1; path=/'
+    recordAuthSession()
     const redirect = route.query.redirect?.toString() || '/home/dashboard'
     router.replace(redirect)
   } else {

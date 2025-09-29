@@ -1,4 +1,5 @@
 import { getCookie, sendRedirect } from 'h3'
+import { ensureAuthCookie, hasAuthCookie, hasRecordedSession } from '~/utils/auth-session'
 
 export default defineNuxtRouteMiddleware((to) => {
   if (to.path === '/password') {
@@ -13,8 +14,12 @@ export default defineNuxtRouteMiddleware((to) => {
       return sendRedirect(event, '/password?redirect=' + encodeURIComponent(to.fullPath))
     }
   } else {
-    if (!document.cookie.includes('astrone_auth=1')) {
+    if (!hasRecordedSession()) {
       return navigateTo('/password?redirect=' + encodeURIComponent(to.fullPath), { replace: true })
+    }
+
+    if (!hasAuthCookie()) {
+      ensureAuthCookie()
     }
   }
 })
