@@ -405,8 +405,8 @@ const isNewDesignEnabled = computed(() => generalSettingsStore.isNewDesignEnable
 // Tab navigation data
 const tabs = [
   { name: 'Home', path: '/' },
-  { name: 'Layout', path: '/website-layout' },
   { name: 'Content', path: '/content' },
+  { name: 'Layout', path: '/website-layout' },
   { name: 'Messaging', path: '/messaging', requiresMobileApp: true },
   { name: 'Settings', path: '/settings' }
 ]
