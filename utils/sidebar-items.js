@@ -45,6 +45,14 @@ export const filterSidebarItems = (items, featuresStore) => {
         currentSection = 'SKIP_SECTION'
         continue
       } else {
+        const isContentSection =
+          item.name === 'Web + Mobile Content' || item.name === 'Website Only Content'
+
+        if (!featuresStore.isMobileAppEnabled && isContentSection) {
+          // Skip content sections when mobile app is disabled to show a single list
+          continue
+        }
+
         // Handle dynamic section naming for "Web + Mobile Content"
         if (item.name === 'Web + Mobile Content') {
           // Change name to "General Content" if either feature is disabled
